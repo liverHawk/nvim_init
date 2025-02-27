@@ -11,9 +11,18 @@ opt.expandtab = true
 
 require("mason").setup()
 require("mason-lspconfig").setup()
+
 require("mason-lspconfig").setup_handlers({
-	function (server_name)
-		require("lspconfig")[servername].setup({})
-	end,
+    function (server_name)
+        require("lspconfig")[server_name].setup({})
+    end,
 })
+
 vim.diagnostic.config()
+
+require("nvim-tree").setup()
+
+vim.api.nvim_create_autocmd("VimEnter", {
+    pattern = "*",
+    command = "NvimTreeOpen"
+})
